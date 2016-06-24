@@ -1,0 +1,17 @@
+table {
+    width: 500px;   
+}
+
+th {
+    text-align: left;
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+#container{
+    width: 1300px;
+   /* border: 1px solid grey;*/
+    
+    margin: 0 auto;
+}
+

@@ -1,0 +1,47 @@
+<h2>Create New Quiz Wizard</h2>
+<br /><br />
+<div class="input-prepend">
+  <span class="add-on">Quiz Name : </span>
+  <input class="span2" id="prependedInput" type="text" ng-model="quiz.name" placeholder="Enter Quiz Name">
+</div>
+<br /><br />
+<div ng-repeat="q in quiz.questions">
+	<fieldset class="panel panel-default">
+    	<div>
+			<div>
+				Select Answer Type : <select ng-model="q.selection" ng-options="option for option in options" class="selectpicker" data-style="btn-primary"></select>
+			</div>
+			<br />
+	 		<div>
+				<span>{{$index + 1}}<span>.</span></span>
+	            <textarea ng-model="q.q" spellcheck="true" rows="3" cols="50" class="prependedInput"></textarea>	
+				<div class="panel-body">
+					<button class="btn btn-info" ngf-select="upload($file,q)">Upload Image</button>
+					<!-- Progress Bar -->
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ uploadProgress }}%;">
+							{{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
+						</div>
+					</div>            
+				</div>
+			</div>
+    	</div>
+ 		<div ng-switch on="q.selection">
+      		<div ng-switch-when="Drop Down">
+		  		<div ng-repeat="o in q.options">
+		  			<input type="text" ng-model="o.value" />
+					<i class="glyphicon glyphicon-remove" ng-click="deleteOption($index,q.options)"></i>
+					<i class="glyphicon glyphicon-plus" ng-click="addOption(q)" ng-show="$last"></i>
+	  	  		</div>
+	  		</div>
+      		<div ng-switch-default></div>
+  		</div>
+		<br />
+		<button ng-click="deleteQ($index)" class="btn btn-info" role="button">Delete Question</button>
+ 	</fieldset>
+</div>
+<br />
+<div>
+    <button ng-click="addQ()" class="btn btn-info" role="button">Add Question</button>
+	<button ng-click="saveQ('/quizList')" class="btn btn-info" role="button">Submit Quiz</button>
+</div>

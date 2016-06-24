@@ -1,0 +1,20 @@
+<h2>Answers for  Quiz {{quizName}}</h2>
+<div class="input-group">
+      <input type="text" ng-model="customerFilter.name" placeholder="Filter By Name" class="form-control" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status"/>
+</div>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th ng-click="doSort('attendeeName')">AttendeeName</th>
+        <th>Evaluate</th>
+	    <th ng-click="doSort('createdDate')">Created Date</th>
+        <th>Delete Answer</th>
+        <th>Marks</th>
+    </tr>
+    <tr ng-repeat="a in answers | filter:customFilter | orderBy:sortBy:reverse">
+        <td>{{ a.answer.q.attendee }}</td>
+        <td><a href="#/viewAnswer/{{ a.id }}" class="btn btn-info" role="button">Evaluate</td>
+		<td>{{ a.date }}</td>
+		<td><button ng-click="delete( a.id )" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span>Delete Answer</button></td>
+        <td>{{a.answer.q.sum}}</td>
+    </tr>
+</table>

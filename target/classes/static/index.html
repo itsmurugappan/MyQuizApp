@@ -1,0 +1,35 @@
+<!doctype html>
+<html  id="ng-app" ng-app="quizApp">
+<head>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Quiz App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href="styles/toastr.min.css" rel="stylesheet">
+	<link href="styles/styles.css" rel="stylesheet" type="text/css" >
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+	<script src="scripts/toastr.min.js"></script>
+	<script src="scripts/aws-sdk.min.js"></script>
+	<script src="scripts/ng-file-upload-shim.min.js"></script>
+	<script src="scripts/ng-file-upload.min.js"></script>
+	
+    <script src="app/app.js"></script>
+    <script src="app/controllers/quizlistcontroller.js"></script>
+    <script src="app/controllers/viewquizcontroller.js"></script>
+	<script src="app/controllers/tycontroller.js"></script>
+    <script src="app/controllers/editquizcontroller.js"></script>
+	<script src="app/controllers/createquizcontroller.js"></script>
+    <script src="app/controllers/viewanswerscontroller.js"></script>
+	<script src="app/controllers/answerlistcontroller.js"></script>
+	<script src="scripts/directives.js"></script>
+    <script src="app/services/quizFactory.js"></script>
+</head>
+<body>
+    <div id="container">
+		<div ng-view></div>
+	</div>
+</body>
+</html>

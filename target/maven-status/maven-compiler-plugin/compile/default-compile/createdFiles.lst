@@ -1,0 +1,12 @@
+com\quiz\web\MercQuizApp\service\CORSFilter.class
+com\quiz\web\MercQuizApp\service\utils\QuizAnswers.class
+com\quiz\web\MercQuizApp\service\utils\Questions.class
+com\quiz\web\MercQuizApp\security\WebSecurityConfig$AuthenticationConfiguration.class
+com\quiz\web\MercQuizApp\service\utils\AWSResources.class
+com\quiz\web\MercQuizApp\service\utils\QuizTO.class
+com\quiz\web\MercQuizApp\security\WebSecurityConfig.class
+com\quiz\web\MercQuizApp\service\utils\QuizUtil.class
+com\quiz\web\MercQuizApp\service\dao\QuizDAO.class
+com\quiz\web\MercQuizApp\service\QuizService.class
+com\quiz\web\MercQuizApp\App.class
+com\quiz\web\MercQuizApp\service\utils\AnswerTO.class

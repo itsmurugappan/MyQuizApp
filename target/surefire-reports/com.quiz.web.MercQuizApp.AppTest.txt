@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.quiz.web.MercQuizApp.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.quiz.web.MercQuizApp.AppTest

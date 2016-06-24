@@ -1,0 +1,37 @@
+<h2>{{ a.q.name }}</h2>
+<br /><br />
+<div class="input-prepend">
+  <span class="add-on">Attendee Name : </span>
+  <input class="span2" id="prependedInput" type="text" ng-model="a.q.attendee" >
+</div>
+<div ng-repeat="q in a.q.questions">
+    <div>
+	 <div>
+              <fieldset class="panel panel-default">
+                        <h4>
+                            <span>
+                                  {{$index + 1}}<span>.</span>
+                            </span>
+	                    <span >{{q.q}}</span>
+                        </h4>
+                        <div ng-switch on="q.selection">
+							<div ng-switch-when="Drop Down">
+								<select ng-model="q.answer" ng-options="option.value for option in q.options track by option.ID" class="selectpicker" data-style="btn-primary"></select>
+							</div>
+      					<div ng-switch-default>
+								<textarea ng-model="q.answer" spellcheck="true" rows="3" cols="50" class="prependedInput"></textarea>							
+						</div>
+						<div class="input-prepend">
+  							<span class="add-on">Marks : </span>
+							<input class="span2" id="prependedInput" type="text" ng-model="q.marks" >
+						</div>
+
+                        </div>
+             </fieldset>
+        </div>
+    </div>
+</div>
+<br />
+<div>
+     <button ng-click="saveAnswers('/viewAnswers/'+a.q.name)" class="btn btn-info" role="button">Save Marks</button>
+</div>
