@@ -7,7 +7,7 @@
 		$scope.sizeLimit      = 10585760; // 10MB in Bytes
   		$scope.uploadProgress = 0;
 		$scope.creds = {
-						  bucket: 'muruquiz',
+						  bucket: '',
 						  access_key: '',
 						  secret_key: ''
 						};
