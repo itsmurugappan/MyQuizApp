@@ -8,8 +8,8 @@
   		$scope.uploadProgress = 0;
 		$scope.creds = {
 						  bucket: 'muruquiz',
-						  access_key: 'AKIAJWFCR72O33SF2SEA',
-						  secret_key: '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'
+						  access_key: '',
+						  secret_key: ''
 						};
         
         function init() {
