@@ -1,5 +1,8 @@
-table {
-    width: 500px;   
+.table {
+    width: 99%; 
+    border: 1px solid grey;
+    border-radius:5px;
+    margin-left:0.5%;
 }
 
 th {
@@ -9,9 +12,52 @@ th {
 }
 
 #container{
-    width: 1300px;
+    width: 100%;
    /* border: 1px solid grey;*/
     
     margin: 0 auto;
+
 }
 
+h1{
+    text-align: center;
+       margin-top:-25px;
+    
+}
+
+h2{
+    text-align: left;
+    margin-left:0.5%;
+    
+}
+
+body {
+  border: 1px solid grey;
+    border-radius:4px;
+  width:70%;
+  height:90%;
+  display:block;
+ 
+margin-left: 15%;
+}
+
+.jumbotron {
+    height: 40px;
+    background-color: brown;
+color: ghostwhite;
+font-family: "Times New Roman", Georgia, Serif;
+    font-size: 30px;
+}
+
+.input-group{
+   margin-left:0.5%; 
+}
+
+.jumbotron h1{
+    font-size: 40px;
+    
+}
+
+#createQ{
+    margin-left:1%;
+}
