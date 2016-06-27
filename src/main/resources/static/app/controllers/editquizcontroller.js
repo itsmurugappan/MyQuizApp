@@ -8,10 +8,17 @@
         $scope.sizeLimit      = 10585760; // 10MB in Bytes
   		$scope.uploadProgress = 0;
 		$scope.creds = {
+<<<<<<< HEAD
 						  bucket: 'muruquiz',
 						  access_key: '',
 						  secret_key: ''
 						}
+=======
+						  bucket: '',
+						  access_key: '',
+						  secret_key: ''
+						};
+>>>>>>> d52b66bc9bb8ab9bb03a18576176dfb597740e75
 
         function init() {
 					quizFactory.awsCred()
