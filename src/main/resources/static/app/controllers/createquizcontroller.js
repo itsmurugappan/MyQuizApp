@@ -10,7 +10,7 @@
 						  bucket: 'muruquiz',
 						  access_key: 'AKIAJWFCR72O33SF2SEA',
 						  secret_key: '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'
-						}
+						};
         
         function init() {
                     var question = new Object();
