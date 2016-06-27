@@ -16,6 +16,7 @@ package com.quiz.web.MercQuizApp.service.utils;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
+import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
@@ -50,7 +51,7 @@ public class AWSResources {
      * file on our classpath.
      */
     public static final AWSCredentialsProvider CREDENTIALS_PROVIDER =
-            new EnvironmentVariableCredentialsProvider();
+            new SystemPropertiesCredentialsProvider();
 
     /*
      * This controls the AWS region used for created resources. You can easily

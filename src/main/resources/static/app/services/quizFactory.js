@@ -80,6 +80,13 @@
             });
         };
 		
+		factory.awsCred = function() {
+            return $http({
+            url: '/getAWSCred', 
+            method: 'POST',
+            });
+        };
+
         return factory;
     };
     

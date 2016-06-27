@@ -5,16 +5,23 @@
 		$scope.quiz = new Object();
         $scope.quiz.questions = new Array();
 		$scope.options = ['Text', 'Drop Down'];
-		$scope.sizeLimit      = 10585760; // 10MB in Bytes
+        $scope.sizeLimit      = 10585760; // 10MB in Bytes
   		$scope.uploadProgress = 0;
 		$scope.creds = {
 						  bucket: 'muruquiz',
-						  access_key: 'AKIAJWFCR72O33SF2SEA',
-						  secret_key: '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'
-						};
+						  access_key: '',
+						  secret_key: ''
+						}
 
-        
         function init() {
+					quizFactory.awsCred()
+                		.then(function(response) {
+							$scope.creds.access_key = response.data.accessKey;
+							$scope.creds.secret_key = response.data.secretKey;
+                		}, function(data, status, headers, config) {
+                    	$log.log(data.error + ' ' + status);
+                		});
+
                     quizFactory.getQuiz(id)
                         .then(function(response) {
                     var quizObj = response.data;
@@ -66,7 +73,8 @@
 	                options.splice(id, 1);
                 }  
   		};
-	$scope.upload = function(file,q) {
+		
+			$scope.upload = function(file,q) {
     AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
     AWS.config.region = 'us-east-1';
     var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
@@ -114,6 +122,8 @@
     // Convert Bytes To MB
     return Math.round($scope.sizeLimit / 1024 / 1024) + 'MB';
   };
+
+
 
   };
     

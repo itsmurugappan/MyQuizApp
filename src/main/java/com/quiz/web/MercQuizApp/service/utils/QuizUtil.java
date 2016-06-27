@@ -65,5 +65,19 @@ public String from(InputStream is) throws IOException {
 		}
 		return obj;
 	}
+	
+	public JSONObject getAWSCredObject()
+	{
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("accessKey", System.getProperty("aws.accessKeyId"));
+			obj.put("secretKey", System.getProperty("aws.secretKey"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+	}
+
 
 }

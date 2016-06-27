@@ -8,11 +8,19 @@
   		$scope.uploadProgress = 0;
 		$scope.creds = {
 						  bucket: 'muruquiz',
-						  access_key: 'AKIAJWFCR72O33SF2SEA',
-						  secret_key: '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'
-						};
+						  access_key: '',
+						  secret_key: ''
+						}
         
         function init() {
+					quizFactory.awsCred()
+                		.then(function(response) {
+							$scope.creds.access_key = response.data.accessKey;
+							$scope.creds.secret_key = response.data.secretKey;
+                		}, function(data, status, headers, config) {
+                    	$log.log(data.error + ' ' + status);
+                		});
+			
                     var question = new Object();
                     question.q = ' ';
                     question.options = new Array();
