@@ -7,12 +7,21 @@
 		$scope.sizeLimit      = 10585760; // 10MB in Bytes
   		$scope.uploadProgress = 0;
 		$scope.creds = {
-						  bucket: '',
+						  bucket: 'muruquiz',
 						  access_key: '',
 						  secret_key: ''
 						};
+
         
         function init() {
+					quizFactory.awsCred()
+                		.then(function(response) {
+							$scope.creds.access_key = response.data.accessKey;
+							$scope.creds.secret_key = response.data.secretKey;
+                		}, function(data, status, headers, config) {
+                    	$log.log(data.error + ' ' + status);
+                		});
+			
                     var question = new Object();
                     question.q = ' ';
                     question.options = new Array();

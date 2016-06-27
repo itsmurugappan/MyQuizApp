@@ -101,5 +101,11 @@ public class QuizService {
 		return util.successObject().toString();
 	}
 
+	@RequestMapping(value = "/getAWSCred", method = RequestMethod.POST)
+	public String getAWSCred()
+	{
+		return util.getAWSCredObject().toString();
+	}
+
 	
 }

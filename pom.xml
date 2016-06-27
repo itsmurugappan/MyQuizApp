@@ -4,8 +4,8 @@
 
   <groupId>com.quiz.web</groupId>
   <artifactId>MercQuizApp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <version>0.0.5-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <name>MercQuizApp</name>
   <url>http://maven.apache.org</url>
@@ -23,6 +23,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <start-class>com.quiz.web.MercQuizApp.App</start-class>
   </properties>
 
     <parent>
@@ -40,6 +41,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+	</dependency>
     <dependency>
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-ldap</artifactId>
