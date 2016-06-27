@@ -14,7 +14,7 @@
 	<script src="scripts/toastr.min.js"></script>
 	<script src="scripts/aws-sdk.min.js"></script>
 	<script src="scripts/ng-file-upload-shim.min.js"></script>
-	<script src="scripts/ng-file-upload.min.js"></script>
+	<script src="scripts/ng-file-upload.min.js"></script> 
 	
     <script src="app/app.js"></script>
     <script src="app/controllers/quizlistcontroller.js"></script>
@@ -29,7 +29,17 @@
 </head>
 <body>
     <div id="container">
+         <div class="jumbotron text-center">
+             <h1>Merc Marvels Quiz</h1></div>
+  
 		<div ng-view></div>
+        
 	</div>
 </body>
+<footer class="container-fluid text-center ">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>© Copyright Owned By <a href="http://www.w3schools.com" title="Visit Merc Marvles Quiz">www.mercmarvels.com</a></p> 
+</footer>
 </html>
