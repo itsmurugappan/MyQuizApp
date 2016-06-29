@@ -15,11 +15,11 @@
             });
         };
 
-        factory.updateQuizAnswers = function(quiz) {
+        factory.updateQuizAnswers = function(ans) {
             return $http({
             url: '/updateQuizAnswers', 
             method: 'POST',
-            data: {q: quiz}
+            data: {ans: ans}
             });
         };
         factory.submitQuizAnswers = function(quiz) {

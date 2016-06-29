@@ -8,7 +8,7 @@
         <th>Evaluate</th>
 	    <th ng-click="doSort('createdDate')">Created Date</th>
         <th>Delete Answer</th>
-        <th>Marks</th>
+        <th ng-click="doSort('marks')">Marks</th>
     </tr>
     <tr ng-repeat="a in answers | filter:customFilter | orderBy:sortBy:reverse">
         <td>{{ a.answer.q.attendee }}</td>
