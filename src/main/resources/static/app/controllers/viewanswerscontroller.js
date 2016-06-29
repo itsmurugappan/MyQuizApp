@@ -2,13 +2,13 @@
     
     var ViewAnswersController = function ($scope, $routeParams, quizFactory,$location) {
         var id = $routeParams.id;
-        $scope.a = null;
+        $scope.ans = null;
         
         function init() {
 
              quizFactory.retrieveAnswer(id)
                 .then(function(response) {
-                    $scope.a = response.data;
+                    $scope.ans = response.data;
                 }, function(data, status, headers, config) {
                     //handle error
                 });
@@ -19,12 +19,12 @@
         
             $scope.saveAnswers = function ( path ) {
                 var total = 0;
-                for (i = 0; i < $scope.a.q.questions.length; i++) { 
-                    var question = $scope.a.q.questions[i];
+                for (i = 0; i < $scope.ans.a.q.questions.length; i++) { 
+                    var question = $scope.ans.a.q.questions[i];
                     total += parseInt(question.marks);
                 }
-                $scope.a.q.sum = total;
-				quizFactory.updateQuizAnswers($scope.a.q)
+                $scope.ans.a.q.sum = total;
+				quizFactory.updateQuizAnswers($scope.ans)
                 .then(function(response) {
                     $location.path( path );
                 }, function(data, status, headers, config) {

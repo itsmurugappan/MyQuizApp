@@ -1,10 +1,10 @@
-<h2>{{ a.q.name }}</h2>
+<h2>{{ ans.a.q.name }}</h2>
 <br /><br />
 <div class="input-prepend">
   <span class="add-on">Attendee Name : </span>
-  <input class="span2" id="prependedInput" type="text" ng-model="a.q.attendee" >
+  <input class="span2" id="prependedInput" type="text" ng-model="ans.a.q.attendee" >
 </div>
-<div ng-repeat="q in a.q.questions">
+<div ng-repeat="q in ans.a.q.questions">
     <div>
 	 <div>
               <fieldset class="panel panel-default">
@@ -33,5 +33,5 @@
 </div>
 <br />
 <div>
-     <button ng-click="saveAnswers('/viewAnswers/'+a.q.name)" class="btn btn-info" role="button">Save Marks</button>
+     <button ng-click="saveAnswers('/viewAnswers/'+ans.a.q.name)" class="btn btn-info" role="button">Save Marks</button>
 </div>

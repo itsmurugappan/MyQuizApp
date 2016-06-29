@@ -58,8 +58,8 @@ public class QuizService {
 	@RequestMapping(value = "/retrieveAnswer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String retrieveAnswer(@RequestBody AnswerTO answerTO)
 	{
-		String q  = dao.retrieveAnswer(answerTO);
-		return q;
+		JSONObject q  = dao.retrieveAnswer(answerTO);
+		return q.toString();
 	}
 	
 	@RequestMapping(value = "/retrieveAnswerList", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

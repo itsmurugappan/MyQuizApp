@@ -10,8 +10,6 @@ import static com.quiz.web.MercQuizApp.service.utils.AWSResources.S3_BUCKET_NAME
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
@@ -198,7 +196,7 @@ public JSONArray retrieveAnswerList(AnswerTO answerTO)
 	return null;
 }
 
-public String retrieveAnswer(AnswerTO answerTO)
+public JSONObject retrieveAnswer(AnswerTO answerTO)
 {
 	try
 	{
@@ -207,16 +205,17 @@ public String retrieveAnswer(AnswerTO answerTO)
         .withComparisonOperator(ComparisonOperator.EQ)
         .withAttributeValueList(new AttributeValue(answerTO.getId())));
         List<QuizAnswers> a = DYNAMODB_MAPPER.scan(QuizAnswers.class, scanExpression);
-        JSONArray arr = new JSONArray();
-        	String obj = null;
+        JSONObject obj = new JSONObject();
+        	String ans = null;
         	try {
-        		obj = util.from(S3.getObject(S3_BUCKET_NAME, a.get(0).getAnswersLink().getKey()).getObjectContent());
-				arr.put(obj);
+        		ans = util.from(S3.getObject(S3_BUCKET_NAME, a.get(0).getAnswersLink().getKey()).getObjectContent());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-        return obj;
+        	obj.put("id", answerTO.getId());
+        	obj.put("a",  new JSONObject(ans));
+        	return obj;
 	}catch(Exception ex)
 	{
 		ex.printStackTrace();
@@ -249,12 +248,12 @@ public void updateAnswer(JSONObject obj)
 	try
 	{
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
-        scanExpression.addFilterCondition("quizName", new Condition()
+        scanExpression.addFilterCondition("id", new Condition()
         .withComparisonOperator(ComparisonOperator.EQ)
-        .withAttributeValueList(new AttributeValue(obj.getJSONObject("q").getString("name"))));
+        .withAttributeValueList(new AttributeValue(obj.getJSONObject("ans").getString("id"))));
         List<QuizAnswers> a = DYNAMODB_MAPPER.scan(QuizAnswers.class, scanExpression);
         	try {
-				a.get(0).getAnswersLink().uploadFrom(obj.toString().getBytes());
+				a.get(0).getAnswersLink().uploadFrom(obj.getJSONObject("ans").getJSONObject("a").toString().getBytes());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
