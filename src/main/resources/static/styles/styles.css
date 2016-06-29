@@ -31,6 +31,11 @@ h2{
     
 }
 
+h4{
+   margin-left:0.5%;
+    
+}
+
 body {
   border: 1px solid grey;
     border-radius:4px;
@@ -60,4 +65,38 @@ font-family: "Times New Roman", Georgia, Serif;
 
 #createQ{
     margin-left:1%;
+}
+
+.input-prepend{
+   margin-left:0.5%;  
+}
+
+.prependedInput{
+     margin-left:3%;  
+}
+
+.selectpicker{
+    margin-left:3%;
+    width:10%;
+    
+}
+
+.btn{
+    margin-left:3%
+}
+
+
+.panel{
+    border:0px;
+}
+
+.loading-dialog {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 0, 0, 0, .2 ) url('../app/images/loader.gif') 50% 50% no-repeat;
 }
