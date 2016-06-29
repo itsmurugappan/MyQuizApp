@@ -3,8 +3,9 @@
 <div class="input-prepend">
   <span class="add-on">Please enter your name : </span>
   <input class="span2" id="prependedInput" type="text" ng-model="quizObj.quiz.attendee" >
-</div>
-<div ng-repeat="q in quizObj.quiz.questions">
+</div>          
+
+<div  ng-repeat="q in quizObj.quiz.questions">
     <div>
 	 <div>
               <fieldset class="panel panel-default">
@@ -14,11 +15,11 @@
                             </span>
 	                    <span >{{q.q}}</span>
                         </h4>
-				  		<div><img src="{{q.imageLink}}" width="400px" height="240px"></div>
+				  		<div  ng-show="q.imageLink != null"><img src="{{q.imageLink}}" class="img-responsive" ></div>
 				  		<br />
                         <div ng-switch on="q.selection">
 							<div ng-switch-when="Drop Down">
-								<select ng-model="q.answer" ng-options="option.value for option in q.options" class="selectpicker" data-style="btn-primary"></select>
+								<select ng-model="q.answer" ng-options="option.value for option in q.options" class="selectpicker"  data-style="btn-primary"></select>
 							</div>
       					<div ng-switch-default>
 								<textarea ng-model="q.answer" spellcheck="true" rows="3" cols="50" class="prependedInput"></textarea>							
@@ -28,6 +29,7 @@
         </div>
     </div>
 </div>
+
 <br />
 <div>
      <button ng-click="ty('/ty')" class="btn btn-info" role="button">Submit Answers</button>

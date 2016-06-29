@@ -1,6 +1,6 @@
 (function() {
     
-    var app = angular.module('quizApp', ['ngRoute','ngFileUpload','directives',]);
+    var app = angular.module('quizApp', ['ngRoute','ngFileUpload','directives','angular-loading-bar']);
     
     app.config(function($routeProvider) {
         $routeProvider
