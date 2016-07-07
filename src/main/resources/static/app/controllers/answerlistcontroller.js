@@ -27,12 +27,13 @@
 		$scope.delete = function ( id ) {
 				quizFactory.deleteAnswer(id)
                 .then(function(response) {
-                }, function(data, status, headers, config) {
-                    $log.log(data.error + ' ' + status);
-                });
                 quizFactory.retrieveAnswerList(name)
                 .then(function(response) {
                     $scope.answers = response.data;
+                }, function(data, status, headers, config) {
+                    $log.log(data.error + ' ' + status);
+                });
+
                 }, function(data, status, headers, config) {
                     $log.log(data.error + ' ' + status);
                 });
