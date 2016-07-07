@@ -3,6 +3,7 @@
     var EditQuizController = function ($scope, $routeParams, quizFactory,$location) {
         var id = $routeParams.id;
 		$scope.quiz = new Object();
+		$scope.winner = true;
         $scope.quiz.questions = new Array();
 		$scope.options = ['Text', 'Drop Down'];
         $scope.sizeLimit      = 10585760; // 10MB in Bytes

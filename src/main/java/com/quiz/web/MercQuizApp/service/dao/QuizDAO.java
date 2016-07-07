@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ComparisonOperator;
@@ -273,8 +274,11 @@ public void editQuiz(JSONObject q)
         .withComparisonOperator(ComparisonOperator.EQ)
         .withAttributeValueList(new AttributeValue(q.getJSONObject("quiz").getString("name"))));
         List<Questions> quiz = DYNAMODB_MAPPER.scan(Questions.class, scanExpression);
+        Questions question = quiz.get(0);
+        question.setImageLink(q.getJSONObject("quiz").tryGetString("imageLink"));
+        DYNAMODB_MAPPER.save(question);
         	try {
-				quiz.get(0).getQuestionsLink().uploadFrom(q.toString().getBytes());
+        		question.getQuestionsLink().uploadFrom(q.toString().getBytes());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
