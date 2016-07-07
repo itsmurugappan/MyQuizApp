@@ -25,8 +25,17 @@ public class Questions {
     private S3Link questionsLink;
     private Date creationTime;
     private String imageLink;
+    private String winnerName;
 
-    public String getImageLink() {
+    public String getWinnerName() {
+		return winnerName;
+	}
+
+	public void setWinnerName(String winnerName) {
+		this.winnerName = winnerName;
+	}
+
+	public String getImageLink() {
 		return imageLink;
 	}
 

@@ -71,6 +71,7 @@ public class QuizDAO {
 					obj.put("id", qs.getId());
 					obj.put("createdDate", qs.getCreationTime());
 					obj.put("imageLink", qs.getImageLink());
+					obj.put("winnerName", qs.getWinnerName());
 					arr.put(obj);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -277,6 +278,7 @@ public void editQuiz(JSONObject q)
         List<Questions> quiz = DYNAMODB_MAPPER.scan(Questions.class, scanExpression);
         Questions question = quiz.get(0);
         question.setImageLink(q.getJSONObject("quiz").tryGetString("imageLink"));
+        question.setWinnerName(q.getJSONObject("quiz").tryGetString("winnerName"));
         DYNAMODB_MAPPER.save(question);
         	try {
         		question.getQuestionsLink().uploadFrom(q.toString().getBytes());

@@ -35,9 +35,12 @@
  	</fieldset>
 </div>
 <br />
-<div class="panel-body" ng-show=winner>
-	<button class="btn btn-info" ngf-select="upload($file,quiz)">Upload Winner Image</button>
-	<!-- Progress Bar -->
+<div class="input-prepend" ng-show=winner>
+  <span class="add-on">Winner Name : </span>
+  <input class="span2" id="prependedInput" type="text" ng-model="quiz.winnerName" placeholder="Enter Quiz Name">
+  <div class="panel-body" >
+   <button class="btn btn-info" ngf-select="upload($file,quiz)">Upload Winner Image</button>
+  </div>
 </div>
 <div class="progress">
 		<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ uploadProgress }}%;">
