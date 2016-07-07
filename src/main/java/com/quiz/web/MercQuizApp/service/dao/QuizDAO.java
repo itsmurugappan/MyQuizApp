@@ -70,6 +70,7 @@ public class QuizDAO {
 					obj.put("name", qs.getQuizName());
 					obj.put("id", qs.getId());
 					obj.put("createdDate", qs.getCreationTime());
+					obj.put("imageLink", qs.getImageLink());
 					arr.put(obj);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
