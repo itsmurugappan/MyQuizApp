@@ -1,3 +1,15 @@
 
-<div> Thanks for taking the quiz!.</div>
-
+<div class="thankyou"><h4> Thank you for your participation</h4></div>
+  <div class="winner"><h4>Winners of MerQuiz so far</h4></div>
+   <carousel interval="myInterval">
+      
+              <slide data-ng-repeat="slide in slides" active="slide.active">
+                  <img data-ng-src="{{slide.imageLink}}" style="margin:auto;">
+                </slide>
+         <div class="carousel-caption">
+                  <p>{{slide.name}}</p>
+                  </div>
+      
+ </carousel>
+<br/>
+<br/>
