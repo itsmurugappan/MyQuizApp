@@ -17,12 +17,6 @@
 	            <textarea ng-model="q.q" spellcheck="true" rows="3" cols="50" class="prependedInput"></textarea>	
 				<div class="panel-body">
 					<button class="btn btn-info" ngf-select="upload($file,q)">Upload Image</button>
-					<!-- Progress Bar -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ uploadProgress }}%;">
-							{{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
-						</div>
-					</div>            
 				</div>
 			</div>
     	</div>
@@ -41,16 +35,18 @@
  	</fieldset>
 </div>
 <br />
+<div class="panel-body" ng-show=winner>
+	<button class="btn btn-info" ngf-select="upload($file,quiz)">Upload Winner Image</button>
+	<!-- Progress Bar -->
+</div>
+<div class="progress">
+		<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ uploadProgress }}%;">
+				{{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
+		</div>
+</div>            
 <div>
     <button ng-click="addQ()" class="btn btn-info" role="button">Add Question</button>
 	<button ng-click="saveQ('/quizList')" class="btn btn-info" role="button">Submit Quiz</button>
 </div>
-<div class="panel-body">
-	<button class="btn btn-info" ngf-select="upload($file,quiz)">Upload Winner Image</button>
-	<!-- Progress Bar -->
-	<div class="progress">
-		<div class="progress-bar" role="progressbar" aria-valuenow="{{ uploadProgress }}" aria-valuemin="0" aria-valuemax="10" style="width: {{ uploadProgress }}%;">
-				{{ uploadProgress == 0 ? '' : uploadProgress + '%' }}
-		</div>
-    </div>            
-</div>
+
+
