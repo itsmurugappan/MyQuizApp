@@ -1,4 +1,4 @@
-package com.quiz.web.MercQuizApp.service;
+package com.quiz.web.MercQuizApp.controller;
 
 import java.util.Map;
 
